@@ -11,9 +11,4 @@ class MoveTranslation extends Model
 
     protected $table = 'move_translations';
     protected $fillable = ['move_id', 'language_id', 'name', 'description'];
-
-    public function move()
-    {
-        return $this->belongsTo(Move::class);
-    }
 }

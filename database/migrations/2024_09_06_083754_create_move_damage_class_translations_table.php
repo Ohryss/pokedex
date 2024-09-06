@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('name');
             $table->text('description');
             $table->unique(['move_damage_class_id', 'locale']);
+            $table->timestamps();
         });
     }
 

@@ -32,6 +32,7 @@ return new class extends Migration
             $table->foreignId('trade_species_id')->nullable()->constrained('pokemons');
             $table->boolean('turn_upside_down')->default(false);
             $table->foreignId('evolution_trigger_id')->constrained('evolution_triggers');
+            $table->timestamps();
         });
     }
 

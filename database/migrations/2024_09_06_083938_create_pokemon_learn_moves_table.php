@@ -24,6 +24,7 @@ return new class extends Migration
                 'move_learn_method_id', 
                 'game_version_id'
             ]);
+            $table->timestamps();
         });
     }
 

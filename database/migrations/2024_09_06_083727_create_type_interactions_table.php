@@ -13,6 +13,7 @@ return new class extends Migration {
             $table->foreignId('to_type_id')->constrained('types');
             $table->foreignId('type_interaction_state_id')->constrained('type_interaction_states');
             $table->unique(['from_type_id', 'to_type_id']);
+            $table->timestamps();
         });
     }
 

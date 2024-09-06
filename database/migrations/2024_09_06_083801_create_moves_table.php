@@ -19,6 +19,7 @@ return new class extends Migration
             $table->integer('pp');
             $table->integer('priority');
             $table->foreignId('type_id')->constrained('types');
+            $table->timestamps();
         });
     }
 

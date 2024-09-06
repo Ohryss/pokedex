@@ -11,9 +11,4 @@ class EvolutionTriggerTranslation extends Model
 
     protected $table = 'evolution_trigger_translations';
     protected $fillable = ['evolution_trigger_id', 'language_id', 'name'];
-
-    public function evolutionTrigger()
-    {
-        return $this->belongsTo(EvolutionTrigger::class);
-    }
 }

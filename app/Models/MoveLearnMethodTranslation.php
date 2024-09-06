@@ -11,9 +11,4 @@ class MoveLearnMethodTranslation extends Model
 
     protected $table = 'move_learn_method_translations';
     protected $fillable = ['move_learn_method_id', 'language_id', 'name'];
-
-    public function moveLearnMethod()
-    {
-        return $this->belongsTo(MoveLearnMethod::class);
-    }
 }

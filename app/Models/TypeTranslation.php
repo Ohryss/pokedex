@@ -16,9 +16,4 @@ class TypeTranslation extends Model
         'locale',
         'name'
     ];
-
-    public function type()
-    {
-        return $this->belongsTo(Type::class);
-    }
 }

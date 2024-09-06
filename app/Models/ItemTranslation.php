@@ -11,9 +11,4 @@ class ItemTranslation extends Model
 
     protected $table = 'item_translations';
     protected $fillable = ['item_id', 'language_id', 'name', 'description'];
-
-    public function item()
-    {
-        return $this->belongsTo(Item::class);
-    }
 }

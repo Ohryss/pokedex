@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('locale');
             $table->string('name');
             $table->unique(['game_version_id', 'locale']);
+            $table->timestamps();
         });
     }
 

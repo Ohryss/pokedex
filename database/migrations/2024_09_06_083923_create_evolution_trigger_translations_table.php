@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('locale');
             $table->string('name');
             $table->unique(['evolution_trigger_id', 'locale']);
+            $table->timestamps();
         });
     }
 

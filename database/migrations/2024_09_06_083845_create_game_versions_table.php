@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('generic_name');
             $table->integer('generation');
+            $table->timestamps();
         });
     }
 

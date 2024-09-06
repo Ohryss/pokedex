@@ -12,8 +12,4 @@ class AbilityTranslation extends Model
     protected $table = 'ability_translations';
     protected $fillable = ['ability_id', 'language_id', 'name'];
 
-    public function ability()
-    {
-        return $this->belongsTo(Ability::class);
-    }
 }

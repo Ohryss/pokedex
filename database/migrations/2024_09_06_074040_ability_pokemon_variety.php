@@ -13,11 +13,13 @@ return new class extends Migration
     {
         Schema::create('ability_pokemon_variety', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('ability_id')->constrained('abilities'); // Clé étrangère vers la table abilities
-            $table->foreignId('pokemon_variety_id')->constrained('pokemon_varieties'); // Clé étrangère vers la table pokemon_varieties
+            $table->unsignedBigInteger('ability_id');
+            $table->unsignedBigInteger('pokemon_variety_id');
             $table->boolean('is_hidden')->default(false);
             $table->integer('slot');
-            $table->timestamps(); // Pour ajouter les colonnes created_at et updated_at
+            $table->foreign('ability_id')->references('id')->on('abilities')->onDelete('cascade');
+            $table->foreign('pokemon_variety_id')->references('id')->on('pokemon_varieties')->onDelete('cascade');
+            $table->unique(['ability_id', 'pokemon_variety_id']);
         });
     }
 
@@ -29,3 +31,6 @@ return new class extends Migration
         Schema::dropIfExists('ability_pokemon_variety');
     }
 };
+
+
+            

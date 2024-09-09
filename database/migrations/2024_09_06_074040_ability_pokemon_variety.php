@@ -19,8 +19,9 @@ return new class extends Migration
             $table->integer('slot');
             $table->foreign('ability_id')->references('id')->on('abilities')->onDelete('cascade');
             $table->foreign('pokemon_variety_id')->references('id')->on('pokemon_varieties')->onDelete('cascade');
-            $table->unique(['ability_id', 'pokemon_variety_id']);
             $table->timestamps();
+
+            $table->unique(['ability_id', 'pokemon_variety_id']);
         });
     }
 

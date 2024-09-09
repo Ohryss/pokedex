@@ -17,8 +17,9 @@ return new class extends Migration
             $table->string('locale');
             $table->string('name');
             $table->text('description')->nullable();
-            $table->unique(['move_learn_method_id', 'locale']);
             $table->timestamps();
+
+            $table->unique(['move_learn_method_id', 'locale']);
         });
     }
 

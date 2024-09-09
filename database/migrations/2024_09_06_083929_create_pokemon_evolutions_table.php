@@ -18,8 +18,8 @@ return new class extends Migration
             $table->boolean('gender')->nullable();
             $table->foreignId('held_item_id')->nullable()->constrained('items');
             $table->foreignId('item_id')->nullable()->constrained('items');
-            $table->foreignId('know_move_id')->nullable()->constrained('moves');
-            $table->foreignId('know_move_type_id')->nullable()->constrained('types');
+            $table->foreignId('known_move_id')->nullable()->constrained('moves');
+            $table->foreignId('known_move_type_id')->nullable()->constrained('types');
             $table->string('location')->nullable();
             $table->integer('min_affection')->nullable();
             $table->integer('min_happiness')->nullable();

@@ -16,8 +16,9 @@ return new class extends Migration
             $table->foreignId('type_id')->constrained('types');
             $table->string('locale');
             $table->string('name');
-            $table->unique(['type_id', 'locale']);
             $table->timestamps();
+
+            $table->unique(['type_id', 'locale']);
         });
     }
 

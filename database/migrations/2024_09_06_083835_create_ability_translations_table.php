@@ -17,8 +17,10 @@ return new class extends Migration
             $table->string('locale');
             $table->string('name');
             $table->text('description')->nullable();
-            $table->unique(['ability_id', 'locale']);
+            $table->text('effect')->nullable();
             $table->timestamps();
+            
+            $table->unique(['ability_id', 'locale']);
         });
     }
 

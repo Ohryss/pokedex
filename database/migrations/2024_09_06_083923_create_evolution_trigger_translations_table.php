@@ -16,8 +16,10 @@ return new class extends Migration
             $table->foreignId('evolution_trigger_id')->constrained('evolution_triggers');
             $table->string('locale');
             $table->string('name');
-            $table->unique(['evolution_trigger_id', 'locale']);
             $table->timestamps();
+
+            $table->unique(['evolution_trigger_id', 'locale']);
+
         });
     }
 

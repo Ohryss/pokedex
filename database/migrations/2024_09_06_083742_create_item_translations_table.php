@@ -13,8 +13,9 @@ return new class extends Migration {
             $table->string('locale');
             $table->string('name');
             $table->text('description')->nullable();
-            $table->unique(['item_id', 'locale']);
             $table->timestamps();
+
+            $table->unique(['item_id', 'locale']);
         });
     }
 

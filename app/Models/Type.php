@@ -17,8 +17,20 @@ class Type extends Model implements TranslatableContract
     /**
      * Relation Many-to-Many avec PokemonVariety.
      */
-    public function pokemonVarieties()
+    public function PokemonVariety()
     {
-        return $this->belongsToMany(PokemonVariety::class, 'pokemon_variety_type');
+        return $this->hasMany(PokemonVariety::class, '');
+    }
+    public function TypeInteraction()
+    {
+        return $this->hasMany(TypeInteraction::class, '');
+    }
+    public function PokemonEvolution()
+    {
+        return $this->hasMany(PokemonEvolution::class, '');
+    }
+    public function Move()
+    {
+        return $this->hasMany(Move::class, '');
     }
 }

@@ -18,13 +18,15 @@ return new class extends Migration
             $table->foreignId('move_learn_method_id')->constrained('move_learn_methods');
             $table->foreignId('game_version_id')->constrained('game_versions');
             $table->integer('level')->default(0);
+            $table->timestamps();
+            
             $table->unique([
                 'pokemon_variety_id', 
                 'move_id', 
                 'move_learn_method_id', 
                 'game_version_id'
             ]);
-            $table->timestamps();
+            
         });
     }
 

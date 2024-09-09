@@ -16,8 +16,9 @@ return new class extends Migration
             $table->foreignId('game_version_id')->constrained('game_versions');
             $table->string('locale');
             $table->string('name');
-            $table->unique(['game_version_id', 'locale']);
             $table->timestamps();
+
+            $table->unique(['game_version_id', 'locale']);
         });
     }
 

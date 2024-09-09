@@ -12,18 +12,19 @@ class PokemonEvolution extends Model
     protected $table = 'pokemon_evolutions';
     protected $fillable = ['pokemon_id', 'evolution_trigger_id', 'trigger_item_id', 'minimum_level'];
 
-    public function pokemon()
+    public function Pokemon()
     {
         return $this->belongsTo(Pokemon::class);
     }
 
-    public function trigger()
+    public function EvolutionTrigger()
     {
         return $this->belongsTo(EvolutionTrigger::class, 'evolution_trigger_id');
     }
 
-    public function item()
+    public function Item()
     {
         return $this->belongsTo(Item::class, 'trigger_item_id');
     }
 }
+ 

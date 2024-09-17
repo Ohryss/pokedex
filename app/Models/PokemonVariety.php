@@ -27,4 +27,16 @@ public function sprites()
 {
   return $this->hasOne(PokemonVarietySprite::class);
 }
+public function Moves()
+{
+    return $this->hasMany(Move::class);
+}
+public function types()
+{
+  return $this->belongsToMany(Type::class, 'pokemon_variety_type')->withPivot('slot');
+}
+public function abilities()
+{
+  return $this->belongsToMany(Ability::class, 'ability_pokemon_variety')->withPivot('is_hidden', 'slot');
+}
 }

@@ -24,12 +24,12 @@ return new class extends Migration
             $table->integer('min_affection')->nullable();
             $table->integer('min_happiness')->nullable();
             $table->integer('min_level')->nullable();
-            $table->boolean('need_overworld_rain')->default(false);
-            $table->foreignId('party_species_id')->nullable()->constrained('pokemons');
+            $table->boolean('needs_overworld_rain')->default(false);
+            $table->foreignId('party_species_id')->nullable()->constrained('pokemon');
             $table->foreignId('party_type_id')->nullable()->constrained('types');
             $table->integer('relative_physical_stats')->nullable();
             $table->string('time_of_day')->nullable();
-            $table->foreignId('trade_species_id')->nullable()->constrained('pokemons');
+            $table->foreignId('trade_species_id')->nullable()->constrained('pokemon');
             $table->boolean('turn_upside_down')->default(false);
             $table->foreignId('evolution_trigger_id')->constrained('evolution_triggers');
             $table->timestamps();

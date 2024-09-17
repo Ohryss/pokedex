@@ -19,7 +19,7 @@ class PokemonEvolution extends Model
 
     public function EvolutionTrigger()
     {
-        return $this->belongsTo(EvolutionTrigger::class, 'evolution_trigger_id');
+        return $this->belongsToMany(EvolutionTrigger::class, 'evolution_trigger_id');
     }
 
     public function Item()

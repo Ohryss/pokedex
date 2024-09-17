@@ -19,7 +19,7 @@ class Type extends Model implements TranslatableContract
      */
     public function PokemonVariety()
     {
-        return $this->hasMany(PokemonVariety::class, '');
+        return $this->belongsToMany(PokemonVariety::class, '');
     }
     public function TypeInteraction()
     {

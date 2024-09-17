@@ -18,6 +18,6 @@ class EvolutionTrigger extends Model implements TranslatableContract
 
     public function PokemonEvolution()
     {
-        return $this->belongsTo(PokemonEvolution::class);
+        return $this->belongsToMany(PokemonEvolution::class);
     }
 }

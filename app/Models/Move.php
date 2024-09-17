@@ -23,6 +23,7 @@ class Move extends Model implements TranslatableContract
     {
         return $this->hasMany(PokemonEvolution::class);
     }
+
     public function MoveDamageClass()
     {
         return $this->belongsTo(MoveDamageClass::class);
@@ -30,5 +31,9 @@ class Move extends Model implements TranslatableContract
     public function Type()
     {
         return $this->belongsTo(Type::class);
+    }
+    public function PokemonVariety()
+    {
+        return $this->belongsTo(PokemonVariety::class);
     }
 }

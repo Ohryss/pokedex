@@ -19,24 +19,33 @@ class PokemonVariety extends Model implements TranslatableContract
   protected $casts = [
     'is_default' => 'boolean',
   ];
-  public function pokemon()
-{
-  return $this->belongsTo(Pokemon::class);
-}
-public function sprites()
-{
-  return $this->hasOne(PokemonVarietySprite::class);
-}
-public function Moves()
-{
-    return $this->hasMany(Move::class);
-}
-public function types()
-{
-  return $this->belongsToMany(Type::class, 'pokemon_variety_type')->withPivot('slot');
-}
-public function abilities()
-{
-  return $this->belongsToMany(Ability::class, 'ability_pokemon_variety')->withPivot('is_hidden', 'slot');
-}
+  public function sprites()
+  {
+    return $this->hasOne(PokemonVarietySprite::class);
+  }
+
+  public function abilities(){
+      return $this->belongsToMany(Ability::class);
+  }
+
+    public function evolutions(){
+        return $this->hasMany(PokemonEvolution::class, 'pokemon_variety_id');
+    }
+
+    public function evolvesto(){
+      return $this->hasMany(PokemonEvolution::class, 'evolves_to_id');
+    }
+
+    public function types()
+    {
+        return $this->belongsToMany(Type::class, 'pokemon_variety_type');
+    }
+
+    public function learnMoves(){
+        return $this->hasMany(PokemonLearnMove::class, 'pokemon_variety_id');
+    }
+
+    public function pokemon(){
+        return $this->belongsTo(Pokemon::class);
+    }
 }

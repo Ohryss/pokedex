@@ -12,19 +12,42 @@ class PokemonEvolution extends Model
     protected $table = 'pokemon_evolutions';
     protected $fillable = ['pokemon_id', 'evolution_trigger_id', 'trigger_item_id', 'minimum_level'];
 
-    public function Pokemon()
-    {
-        return $this->belongsTo(Pokemon::class);
+    public function pokemonVariety(){
+        return $this->belongsTo(PokemonVariety::class, 'pokemon_variety_id');
     }
 
-    public function EvolutionTrigger()
-    {
-        return $this->belongsToMany(EvolutionTrigger::class, 'evolution_trigger_id');
+    public function party_species(){
+        return $this->belongsTo(Pokemon::class, 'party_species_id');
     }
 
-    public function Item()
+    public function trade_species(){
+        return $this->belongsTo(Pokemon::class, 'trade_species_id');
+    }
+
+    public function evolvesTo(){
+        return $this->belongsTo(PokemonVariety::class, 'evolves_to_id');
+    }
+
+    public function heldItem()
     {
-        return $this->belongsTo(Item::class, 'trigger_item_id');
+        return $this->belongsTo(Item::class, 'held_item_id');
+    }
+
+    public function item(){
+        return $this->belongsTo(Item::class, 'item_id');
+    }
+
+    public function knownMove(){
+        return $this->belongsTo(Move::class, 'known_move_type_id');
+    }
+
+    public function knownMoveType(){
+        return $this->belongsTo(Type::class, 'known_move_type_id');
+    }
+
+    public function evolutionTrigger()
+    {
+        return $this->belongsTo(EvolutionTrigger::class);
     }
 }
  

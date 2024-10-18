@@ -17,20 +17,18 @@ class Type extends Model implements TranslatableContract
     /**
      * Relation Many-to-Many avec PokemonVariety.
      */
-    public function PokemonVariety()
+    public function typeInteractions()
     {
-        return $this->belongsToMany(PokemonVariety::class, '');
+        return $this->belongsToMany(Type::class, 'type_interactions', 'from_type_id', 'to_type_id')
+                    ->withPivot('type_interaction_state_id');
     }
-    public function TypeInteraction()
-    {
-        return $this->hasMany(TypeInteraction::class, '');
-    }
-    public function PokemonEvolution()
-    {
-        return $this->hasMany(PokemonEvolution::class, '');
+
+    public function PokemonVarieties(){
+        return $this->belongsToMany(PokemonVariety::class)
+                    ->withPivot('slot');
     }
     public function Move()
     {
-        return $this->hasMany(Move::class, '');
+        return $this->hasMany(Move::class);
     }
 }

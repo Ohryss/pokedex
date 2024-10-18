@@ -10,11 +10,11 @@ class PokemonLearnMove extends Model
     use HasFactory;
 
     protected $table = 'pokemon_learn_moves';
-    protected $fillable = ['pokemon_id', 'move_id', 'learn_method_id', 'version_group_id', 'level'];
+    protected $fillable = ['pokemon_variety_id', 'move_id', 'move_learn_method_id', 'game_version_id'];
 
-    public function pokemon()
+    public function PokemonVariety()
     {
-        return $this->belongsTo(Pokemon::class);
+        return $this->belongsTo(PokemonVariety::class);
     }
 
     public function move()
@@ -24,11 +24,12 @@ class PokemonLearnMove extends Model
 
     public function learnMethod()
     {
-        return $this->belongsTo(MoveLearnMethod::class, 'learn_method_id');
+        return $this->hasMany(MoveLearnMethod::class, "id");
     }
-
     public function versionGroup()
     {
-        return $this->belongsTo(GameVersion::class, 'version_group_id');
+        return $this->belongsTo(GameVersion::class, "game_version_id");
     }
+
+
 }

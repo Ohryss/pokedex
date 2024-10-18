@@ -10,5 +10,5 @@ class MoveLearnMethodTranslation extends Model
     use HasFactory;
 
     protected $table = 'move_learn_method_translations';
-    protected $fillable = ['move_learn_method_id', 'language_id', 'name'];
+    protected $fillable = ['move_learn_method_id', 'language_id', 'name', 'description'];
 }

@@ -17,11 +17,11 @@ class Move extends Model implements TranslatableContract
 
     public function PokemonLearnMove()
     {
-        return $this->hasMany(PokemonLearnMove::class);
+        return $this->hasMany(PokemonLearnMove::class, "move_id");
     }
     public function PokemonEvolution()
     {
-        return $this->hasMany(PokemonEvolution::class);
+        return $this->hasMany(PokemonEvolution::class, "known_move_id");
     }
 
     public function MoveDamageClass()

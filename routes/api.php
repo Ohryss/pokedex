@@ -8,8 +8,36 @@ Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:sanctum');
 
-Route::get('/pokemon', [PokemonController::class, 'index']); //affiche les pokémons sur index
+Route::group(['prefix' => 'pokemon'], function (){
+    Route::get('/', [PokemonController::class, 'index']);
+    Route::get('/{pokemon}', [PokemonController::class, 'show']);
+    Route::get('/{pokemon}/varieties', [PokemonController::class, 'showVarieties']);
+});
 
-Route::get('/pokemon/{pokemon}', [PokemonController::class, 'show']); //permet d'afficher un pokémon
+Route::group(['prefix' => 'moves'], function (){
+    Route::get('/', [PokemonController::class, 'moves']);
+    Route::get('/{id}', [PokemonController::class, 'move']);
+});
 
-Route::get('/pokemon/{pokemon}}/varieties', [PokemonController::class, 'showVarieties']); // permet d'afficher les détails d'un pokémon
+Route::group(['prefix' => 'types'], function (){
+    Route::get('/', [PokemonController::class, 'types']);
+    Route::get('/{id}', [PokemonController::class, 'type']);
+});
+
+Route::group(['prefix' => 'abilities'], function () {
+    Route::get('/', [PokemonController::class, 'abilities']);   
+    Route::get('/{id}', [PokemonController::class, 'ability']); 
+});
+
+Route::group(['prefix' => 'items'], function () {
+    Route::get('/', [PokemonController::class, 'items']);
+    Route::get('/{id}', [PokemonController::class, 'item']);
+});
+
+Route::group(['prefix' => 'evolutions'], function () {
+    Route::get('/', [PokemonController::class, 'evolutions']);
+    Route::get('/{id}', [PokemonController::class, 'evolution']);
+});
+
+
+Route::get('/pokemon/{id}/learn-moves', [PokemonController::class, 'learnMoves']);

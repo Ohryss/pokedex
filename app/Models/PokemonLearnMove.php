@@ -30,6 +30,5 @@ class PokemonLearnMove extends Model
     {
         return $this->belongsTo(GameVersion::class, "game_version_id");
     }
-
-
+    
 }

@@ -10,6 +10,15 @@ class AbilityTranslation extends Model
     use HasFactory;
 
     protected $table = 'ability_translations';
-    protected $fillable = ['ability_id', 'language_id', 'name'];
 
+    protected $fillable = [
+        'ability_id',
+        'locale',      
+        'name',        
+        'description',  
+        'effect'        
+    ];
+
+    public $timestamps = false;
 }
+

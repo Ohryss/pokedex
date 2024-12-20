@@ -11,8 +11,9 @@ class Ability extends Model implements TranslatableContract
 {
     use HasFactory, Translatable;
 
-    public $translatedAttributes = ['name','description','effect'];
-    protected $fillable = ['name', 'description'];
+    public $translatedAttributes = ['name', 'description', 'effect'];
+
+    protected $fillable = ['name', 'description', 'effect'];
 
     /**
      * Relation Many-to-Many avec PokemonVariety.

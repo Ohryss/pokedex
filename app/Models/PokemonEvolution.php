@@ -12,10 +12,10 @@ class PokemonEvolution extends Model
     protected $table = 'pokemon_evolutions';
     protected $fillable = ['pokemon_id', 'evolution_trigger_id', 'trigger_item_id', 'minimum_level'];
 
-    public function pokemonVariety(){
+    public function pokemonVariety()
+    {
         return $this->belongsTo(PokemonVariety::class, 'pokemon_variety_id');
     }
-
     public function party_species(){
         return $this->belongsTo(Pokemon::class, 'party_species_id');
     }
@@ -24,8 +24,9 @@ class PokemonEvolution extends Model
         return $this->belongsTo(Pokemon::class, 'trade_species_id');
     }
 
-    public function evolvesTo(){
-        return $this->belongsTo(PokemonVariety::class, 'evolves_to_id');
+    public function evolvesTo()
+    {
+        return $this->belongsTo(PokemonEvolution::class, 'evolves_to_id');
     }
 
     public function heldItem()
